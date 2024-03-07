@@ -111,16 +111,15 @@ namespace ProgramFiles
                             ((CheckBox)c).Checked = false;
                         }
                     }
-                }
-
-                
+                }   
             }
+
 
 
 
             double taxAmmount = subTotal * tax;
             double total = Math.Round(taxAmmount + subTotal,2);
-            label1.Text = itemsChecked.ToString();
+            label1.Text = total.ToString();
             
         }
     }
