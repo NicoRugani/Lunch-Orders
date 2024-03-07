@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.MainCourseGroupBox = new System.Windows.Forms.GroupBox();
-            this.rdHamburger = new System.Windows.Forms.RadioButton();
-            this.rdPizza = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.rdSalad = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.rdPizza = new System.Windows.Forms.RadioButton();
+            this.rdHamburger = new System.Windows.Forms.RadioButton();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.gbHandburger = new System.Windows.Forms.GroupBox();
-            this.cbItemsOne = new System.Windows.Forms.CheckBox();
-            this.cbItemsTwo = new System.Windows.Forms.CheckBox();
             this.cbItemsThree = new System.Windows.Forms.CheckBox();
+            this.cbItemsTwo = new System.Windows.Forms.CheckBox();
+            this.cbItemsOne = new System.Windows.Forms.CheckBox();
             this.gbPizza = new System.Windows.Forms.GroupBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
@@ -67,17 +67,28 @@
             this.MainCourseGroupBox.Text = "Main Course";
             this.MainCourseGroupBox.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // rdHamburger
+            // rdSalad
             // 
-            this.rdHamburger.AutoSize = true;
-            this.rdHamburger.Location = new System.Drawing.Point(22, 19);
-            this.rdHamburger.Name = "rdHamburger";
-            this.rdHamburger.Size = new System.Drawing.Size(113, 17);
-            this.rdHamburger.TabIndex = 0;
-            this.rdHamburger.TabStop = true;
-            this.rdHamburger.Text = "Hamburger - $6.95";
-            this.rdHamburger.UseVisualStyleBackColor = true;
-            this.rdHamburger.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
+            this.rdSalad.AutoSize = true;
+            this.rdSalad.Location = new System.Drawing.Point(22, 83);
+            this.rdSalad.Name = "rdSalad";
+            this.rdSalad.Size = new System.Drawing.Size(85, 17);
+            this.rdSalad.TabIndex = 2;
+            this.rdSalad.TabStop = true;
+            this.rdSalad.Text = "Salad- $4.95";
+            this.rdSalad.UseVisualStyleBackColor = true;
+            this.rdSalad.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(22, 83);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(85, 17);
+            this.radioButton3.TabIndex = 2;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "radioButton3";
+            this.radioButton3.UseVisualStyleBackColor = true;
             // 
             // rdPizza
             // 
@@ -91,28 +102,17 @@
             this.rdPizza.UseVisualStyleBackColor = true;
             this.rdPizza.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
             // 
-            // radioButton3
+            // rdHamburger
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(22, 83);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(85, 17);
-            this.radioButton3.TabIndex = 2;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "radioButton3";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            // 
-            // rdSalad
-            // 
-            this.rdSalad.AutoSize = true;
-            this.rdSalad.Location = new System.Drawing.Point(22, 83);
-            this.rdSalad.Name = "rdSalad";
-            this.rdSalad.Size = new System.Drawing.Size(85, 17);
-            this.rdSalad.TabIndex = 2;
-            this.rdSalad.TabStop = true;
-            this.rdSalad.Text = "Salad- $4.95";
-            this.rdSalad.UseVisualStyleBackColor = true;
-            this.rdSalad.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
+            this.rdHamburger.AutoSize = true;
+            this.rdHamburger.Location = new System.Drawing.Point(22, 19);
+            this.rdHamburger.Name = "rdHamburger";
+            this.rdHamburger.Size = new System.Drawing.Size(113, 17);
+            this.rdHamburger.TabIndex = 0;
+            this.rdHamburger.TabStop = true;
+            this.rdHamburger.Text = "Hamburger - $6.95";
+            this.rdHamburger.UseVisualStyleBackColor = true;
+            this.rdHamburger.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
             // 
             // gbHandburger
             // 
@@ -126,26 +126,6 @@
             this.gbHandburger.TabStop = false;
             this.gbHandburger.Text = "Add-on-items ($.75/each)";
             // 
-            // cbItemsOne
-            // 
-            this.cbItemsOne.AutoSize = true;
-            this.cbItemsOne.Location = new System.Drawing.Point(19, 19);
-            this.cbItemsOne.Name = "cbItemsOne";
-            this.cbItemsOne.Size = new System.Drawing.Size(158, 17);
-            this.cbItemsOne.TabIndex = 0;
-            this.cbItemsOne.Text = "Lettuce, tomato, and onions";
-            this.cbItemsOne.UseVisualStyleBackColor = true;
-            // 
-            // cbItemsTwo
-            // 
-            this.cbItemsTwo.AutoSize = true;
-            this.cbItemsTwo.Location = new System.Drawing.Point(19, 50);
-            this.cbItemsTwo.Name = "cbItemsTwo";
-            this.cbItemsTwo.Size = new System.Drawing.Size(162, 17);
-            this.cbItemsTwo.TabIndex = 1;
-            this.cbItemsTwo.Text = "Ketchup, Mustard, and mayo";
-            this.cbItemsTwo.UseVisualStyleBackColor = true;
-            // 
             // cbItemsThree
             // 
             this.cbItemsThree.AutoSize = true;
@@ -157,6 +137,26 @@
             this.cbItemsThree.UseVisualStyleBackColor = true;
             this.cbItemsThree.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
             // 
+            // cbItemsTwo
+            // 
+            this.cbItemsTwo.AutoSize = true;
+            this.cbItemsTwo.Location = new System.Drawing.Point(19, 50);
+            this.cbItemsTwo.Name = "cbItemsTwo";
+            this.cbItemsTwo.Size = new System.Drawing.Size(162, 17);
+            this.cbItemsTwo.TabIndex = 1;
+            this.cbItemsTwo.Text = "Ketchup, Mustard, and mayo";
+            this.cbItemsTwo.UseVisualStyleBackColor = true;
+            // 
+            // cbItemsOne
+            // 
+            this.cbItemsOne.AutoSize = true;
+            this.cbItemsOne.Location = new System.Drawing.Point(19, 19);
+            this.cbItemsOne.Name = "cbItemsOne";
+            this.cbItemsOne.Size = new System.Drawing.Size(158, 17);
+            this.cbItemsOne.TabIndex = 0;
+            this.cbItemsOne.Text = "Lettuce, tomato, and onions";
+            this.cbItemsOne.UseVisualStyleBackColor = true;
+            // 
             // gbPizza
             // 
             this.gbPizza.Controls.Add(this.checkBox1);
@@ -167,7 +167,7 @@
             this.gbPizza.Size = new System.Drawing.Size(218, 122);
             this.gbPizza.TabIndex = 3;
             this.gbPizza.TabStop = false;
-            this.gbPizza.Text = "Add-on-items ($.75/each)";
+            this.gbPizza.Text = "Add-on-items ($.50/each)";
             // 
             // checkBox1
             // 
@@ -209,7 +209,7 @@
             this.gbSalad.Size = new System.Drawing.Size(218, 122);
             this.gbSalad.TabIndex = 4;
             this.gbSalad.TabStop = false;
-            this.gbSalad.Text = "Add-on-items ($.75/each)";
+            this.gbSalad.Text = "Add-on-items ($.25/each)";
             // 
             // checkBox4
             // 

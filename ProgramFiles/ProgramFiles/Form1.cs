@@ -12,7 +12,9 @@ namespace ProgramFiles
 {
     public partial class Form1 : Form
     {
-        double addOnCost = 0;
+        double addOnItemCost = 0;
+        double subTotal = 0;
+        double tax = 0.0775;
         public Form1()
         {
             
@@ -29,39 +31,93 @@ namespace ProgramFiles
         {
             if (rdHamburger.Checked)
             {
+                subTotal = 6.95;
                 gbHandburger.Visible = true;
                 gbPizza.Visible = false;
                 gbSalad.Visible = false;
 
                 if (gbHandburger.Visible)
                 {
-                    addOnCost = .75;
+                    addOnItemCost = .75;
+
+                    foreach (Control c in gbPizza.Controls)
+                    {
+                        if( c is CheckBox)
+                        {
+                            ((CheckBox)c).Checked = false;
+                        }
+                    }
+                    foreach (Control c in gbSalad.Controls)
+                    {
+                        if (c is CheckBox)
+                        {
+                            ((CheckBox)c).Checked = false;
+                        }
+                    }
                 }
             }
             else if (rdSalad.Checked)
             {
+
+                subTotal = 4.95;
                 gbHandburger.Visible = false;
                 gbPizza.Visible = false;
                 gbSalad.Visible = true;
 
                 if (gbSalad.Visible)
                 {
-                    addOnCost = .25;
+                    addOnItemCost = .25;
+
+                    foreach (Control c in gbHandburger.Controls)
+                    {
+                        if (c is CheckBox)
+                        {
+                            ((CheckBox)c).Checked = false;
+                        }
+                    }
+                    foreach (Control c in gbPizza.Controls)
+                    {
+                        if (c is CheckBox)
+                        {
+                            ((CheckBox)c).Checked = false;
+                        }
+                    }
                 }
             }
             else if (rdPizza.Checked)
             {
+
+                subTotal = 5.95;
                 gbHandburger.Visible = false;
                 gbPizza.Visible = true;
                 gbSalad.Visible = false;
 
                 if (gbPizza.Visible)
                 {
-                    addOnCost = .50;
+                    addOnItemCost = .50;
+
+                    foreach (Control c in gbHandburger.Controls)
+                    {
+                        if (c is CheckBox)
+                        {
+                            ((CheckBox)c).Checked = false;
+                        }
+                    }
+                    foreach (Control c in gbSalad.Controls)
+                    {
+                        if (c is CheckBox)
+                        {
+                            ((CheckBox)c).Checked = false;
+                        }
+                    }
                 }
             }
 
-            label1.Text = addOnCost.ToString();
+
+
+            double taxAmmount = subTotal * tax;
+            double total = Math.Round(taxAmmount + subTotal,2);
+            label1.Text = total.ToString();
             
         }
     }
