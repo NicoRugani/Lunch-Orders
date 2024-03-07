@@ -15,6 +15,7 @@ namespace ProgramFiles
         double addOnItemCost = 0;
         double subTotal = 0;
         double tax = 0.0775;
+        int itemsChecked;
         public Form1()
         {
             
@@ -111,13 +112,15 @@ namespace ProgramFiles
                         }
                     }
                 }
+
+                
             }
 
 
 
             double taxAmmount = subTotal * tax;
             double total = Math.Round(taxAmmount + subTotal,2);
-            label1.Text = total.ToString();
+            label1.Text = itemsChecked.ToString();
             
         }
     }

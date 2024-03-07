@@ -65,7 +65,7 @@
             this.MainCourseGroupBox.TabIndex = 0;
             this.MainCourseGroupBox.TabStop = false;
             this.MainCourseGroupBox.Text = "Main Course";
-            this.MainCourseGroupBox.Enter += new System.EventHandler(this.groupBox1_Enter);
+           // this.MainCourseGroupBox.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // rdSalad
             // 
