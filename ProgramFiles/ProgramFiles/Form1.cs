@@ -12,114 +12,65 @@ namespace ProgramFiles
 {
     public partial class Form1 : Form
     {
-        double addOnItemCost = 0;
         double subTotal = 0;
-        double tax = 0.0775;
         int itemsChecked;
+
         public Form1()
         {
-            
             InitializeComponent();
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-            
-           
+            clbAddOnItems.ItemCheck += clbAddOnItems_ItemCheck;
         }
 
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
         {
+            itemsChecked = 0; // Reset the count when the checkbox state changes
+
             if (rdHamburger.Checked)
             {
                 subTotal = 6.95;
-                gbHandburger.Visible = true;
-                gbPizza.Visible = false;
-                gbSalad.Visible = false;
-
-                if (gbHandburger.Visible)
-                {
-                    addOnItemCost = .75;
-
-                    foreach (Control c in gbPizza.Controls)
-                    {
-                        if( c is CheckBox)
-                        {
-                            ((CheckBox)c).Checked = false;
-                        }
-                    }
-                    foreach (Control c in gbSalad.Controls)
-                    {
-                        if (c is CheckBox)
-                        {
-                            ((CheckBox)c).Checked = false;
-                        }
-                    }
-                }
-            }
-            else if (rdSalad.Checked)
-            {
-
-                subTotal = 4.95;
-                gbHandburger.Visible = false;
-                gbPizza.Visible = false;
-                gbSalad.Visible = true;
-
-                if (gbSalad.Visible)
-                {
-                    addOnItemCost = .25;
-
-                    foreach (Control c in gbHandburger.Controls)
-                    {
-                        if (c is CheckBox)
-                        {
-                            ((CheckBox)c).Checked = false;
-                        }
-                    }
-                    foreach (Control c in gbPizza.Controls)
-                    {
-                        if (c is CheckBox)
-                        {
-                            ((CheckBox)c).Checked = false;
-                        }
-                    }
-                }
+                lblAddOn.Text = "Add-on-items($.75/each)";
+                clbAddOnItems.Items[0] = "Lettuce, Tomato, and onions";
+                clbAddOnItems.Items[1] = "Ketchup, Mustard, and mayo";
+                clbAddOnItems.Items[2] = "French fries";
             }
             else if (rdPizza.Checked)
             {
-
                 subTotal = 5.95;
-                gbHandburger.Visible = false;
-                gbPizza.Visible = true;
-                gbSalad.Visible = false;
-
-                if (gbPizza.Visible)
-                {
-                    addOnItemCost = .50;
-
-                    foreach (Control c in gbHandburger.Controls)
-                    {
-                        if (c is CheckBox)
-                        {
-                            ((CheckBox)c).Checked = false;
-                        }
-                    }
-                    foreach (Control c in gbSalad.Controls)
-                    {
-                        if (c is CheckBox)
-                        {
-                            ((CheckBox)c).Checked = false;
-                        }
-                    }
-                }   
+                lblAddOn.Text = "Add-on-items($.50/each)";
+                clbAddOnItems.Items[0] = "Pepperoni";
+                clbAddOnItems.Items[1] = "Sausage";
+                clbAddOnItems.Items[2] = "Olives";
+            }
+            else if (rdSalad.Checked)
+            {
+                subTotal = 4.95;
+                lblAddOn.Text = "Add-on-items($.25/each)";
+                clbAddOnItems.Items[0] = "Croutons";
+                clbAddOnItems.Items[1] = "Bacon bit";
+                clbAddOnItems.Items[2] = "Bread sticks";
             }
 
+            label1.Text = subTotal.ToString();
 
+        }
 
+        private void clbAddOnItems_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            if (e.NewValue == CheckState.Checked)
+            {
+                itemsChecked++;
+            }
+            else if (e.NewValue == CheckState.Unchecked)
+            {
+                itemsChecked--;
+            }
 
-            double taxAmmount = subTotal * tax;
-            double total = Math.Round(taxAmmount + subTotal,2);
-            label1.Text = total.ToString();
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
             
         }
     }
