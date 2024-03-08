@@ -14,6 +14,8 @@ namespace ProgramFiles
     {
         double subTotal = 0;
         int itemsChecked;
+        double addOnCost;
+        double tax = 0.0775;
 
         public Form1()
         {
@@ -23,10 +25,11 @@ namespace ProgramFiles
 
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
         {
-            itemsChecked = 0; // Reset the count when the checkbox state changes
-
+           
+            
             if (rdHamburger.Checked)
             {
+                addOnCost = .75;
                 subTotal = 6.95;
                 lblAddOn.Text = "Add-on-items($.75/each)";
                 clbAddOnItems.Items[0] = "Lettuce, Tomato, and onions";
@@ -35,6 +38,7 @@ namespace ProgramFiles
             }
             else if (rdPizza.Checked)
             {
+                addOnCost = .50;
                 subTotal = 5.95;
                 lblAddOn.Text = "Add-on-items($.50/each)";
                 clbAddOnItems.Items[0] = "Pepperoni";
@@ -43,6 +47,7 @@ namespace ProgramFiles
             }
             else if (rdSalad.Checked)
             {
+                addOnCost = .25;
                 subTotal = 4.95;
                 lblAddOn.Text = "Add-on-items($.25/each)";
                 clbAddOnItems.Items[0] = "Croutons";
@@ -50,7 +55,7 @@ namespace ProgramFiles
                 clbAddOnItems.Items[2] = "Bread sticks";
             }
 
-            label1.Text = subTotal.ToString();
+            
 
         }
 
@@ -65,13 +70,27 @@ namespace ProgramFiles
                 itemsChecked--;
             }
 
-            
+                
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
+            double totalAddOnCost = addOnCost * itemsChecked;
+            subTotal = subTotal + totalAddOnCost;
+            double taxAmmount = Math.Round(subTotal * tax,2);
+            double total = Math.Round(subTotal + taxAmmount,2);
+            
+            txtSubTotal.Text = subTotal.ToString();
+            txtTax.Text = taxAmmount.ToString();
+            txtTotal.Text = total.ToString();
             
             
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
